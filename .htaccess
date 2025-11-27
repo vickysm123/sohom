@@ -1,0 +1,112 @@
+ErrorDocument 404 https://sohom.in/
+
+
+# Redirect any URL with query strings to the homepage
+RewriteCond %{QUERY_STRING} ^.+$
+RewriteRule ^$ / [L,R=301]
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.sohom.in$
+RewriteRule (.*) https://sohom.in/$1 [R=301,L]
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} ^.*/index.php
+RewriteRule ^(.*)index.php$ https://sohom.in/$1 [R=301,L]
+
+# Redirect URLs with a trailing slash to their non-trailing slash counterparts
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Remove anything after .php and redirect to the base .php file
+RewriteCond %{THE_REQUEST} \s/([^.]+\.php)[^\s]*\s [NC]
+RewriteRule ^ %1 [R=301,L]
+
+
+# Redirect 301 /events /events.php
+Redirect 301 /bi-fold-system/index.php /bi-fold-system.php
+Redirect 301 /bi-fold-system/ /bi-fold-system.php
+Redirect 301 /bi-fold-system/index.html /bi-fold-system.php
+Redirect 301 /about /about.php
+Redirect 301 /tag/nature/ /
+Redirect 301 /uPVC-casement-windows-suppliers-in-telangana/ /uPVC-casement-windows-suppliers-in-telangana.php
+Redirect 301 /events/ /events.php
+Redirect 301 /events/index.php /events.php
+Redirect 301 /sliding-doors-windows/new-slide-series/ /sliding-doors-windows.php
+Redirect 301 /sliding-doors-windows/new-slide-series/index.php /sliding-doors-windows.php
+Redirect 301 /privacy-policy-2/ /privacy-policy.php
+Redirect 301 /privacy-policy-2/index.php /privacy-policy.php
+Redirect 301 /sliding-doors-windows/bella-sliding-series-2/ /sliding-doors-windows.php 
+Redirect 301 /sliding-doors-windows/bella-sliding-series-2/index.php /sliding-doors-windows.php 
+Redirect 301 /casement-doors-windows/everest-max-series/ /casement-doors-windows.php
+Redirect 301 /casement-doors-windows/everest-max-series/index.php /casement-doors-windows.php
+Redirect 301 /casement-doors-windows/zendow-series/ /casement-doors-windows.php
+Redirect 301 /casement-doors-windows/zendow-series/index.php /casement-doors-windows.php
+Redirect 301 /testimonials/ /testimonials.php
+Redirect 301 /uPVC-french-window-manufacturers-and-suppliers/ /uPVC-french-window-manufacturers-and-suppliers.php
+Redirect 301 /single-and-double-hung-windows-suppliers-in-india /single-and-double-hung-windows-suppliers-in-india.php
+Redirect 301 /tilt-and-turn-window-manufacturers-in-hyderabad/ /tilt-and-turn-window-manufacturers-in-hyderabad.php
+Redirect 301 /casement-doors-and-windows-in-india/ /casement-doors-and-windows-in-india.php
+Redirect 301 /sliding-and-folding-door-dealers-in-india/ /sliding-and-folding-door-dealers-in-india.php
+Redirect 301 /lift-and-slide-doors-suppliers-in-andhra-pradesh/ /lift-and-slide-doors-suppliers-in-andhra-pradesh.php
+Redirect 301 /best-double-glazed-windows-and-doors-in-hyderabad/ /best-double-glazed-windows-and-doors-in-hyderabad.php
+Redirect 301 /bottom-hung-casement-window-in-andhra-pradesh/ /bottom-hung-casement-window-in-andhra-pradesh.php
+Redirect 301 /bottom-hung-casement-window-in-andhra-pradesh/index.php /bottom-hung-casement-window-in-andhra-pradesh.php
+Redirect 301 /feed/index.html /
+Redirect 301 /casement-doors-windows/index.html /casement-doors-windows.php
+Redirect 301 /sitemap /sitemap.php
+Redirect 301 /sitemap/ /sitemap.php
+
+
+Redirect 301 /casement-windows-manufacturers-in-mumbai.php /casement-windows-manufacturers-in-hyderabad.php
+Redirect 301 /sliding-window-manufacturers-in-mumbai.php /sliding-window-manufacturers-in-hyderabad.php
+Redirect 301 /bifold-doors-suppliers-in-mumbai-maharashtra.php /bifold-doors-suppliers-in-hyderabad.php
+Redirect 301 /lift-and-slide-doors-dealers-in-mumbai.php /lift-and-slide-doors-dealers-in-hyderabad.php
+Redirect 301 /uPVC-tilt-and-turn-windows-dealers-in-mumbai.php /uPVC-tilt-and-turn-windows-dealers-in-hyderabad.php
+Redirect 301 /uPVC-bay-windows-manufacturers-in-mumbai-india.php /uPVC-bay-windows-manufacturers-in-hyderabad-india.php
+
+
+
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+ # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # Video
+  ExpiresByType video/webm "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/mpeg "access plus 1 year"
+
+  # Fonts
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year" 
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+
+  # CSS, JavaScript
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  # Others
+  ExpiresByType application/pdf "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+</IfModule>
